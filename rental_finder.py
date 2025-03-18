@@ -9,7 +9,8 @@ scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/au
 #creds = ServiceAccountCredentials.from_json_keyfile_name("google_sheets_creds.json", scope)
 # Load Google Sheets credentials from Streamlit secrets
 creds_dict = st.secrets["google_sheets"]
-creds_json = json.loads(json.dumps(creds_dict))  # Convert TOML to JSON format
+#creds_json = json.loads(json.dumps(creds_dict))  # Convert TOML to JSON format
+creds_json = dict(st.secrets["google_sheets"])
 
 # Authorize GSpread with the JSON credentials
 creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_json, scope)
